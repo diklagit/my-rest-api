@@ -1,0 +1,146 @@
+@local=http://localhost:3000
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWNjYTVlOGFlZjQ5ZTNlYzJmN2UzYjciLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzA3OTEwNjQyfQ.pV6loR50Ednq6ryT9qYhYUwzi1oCjtl94OefqVUjIR4
+@userId =65cca5e8aef49e3ec2f7e3b7
+### register user
+POST {{local}}/api/users
+Content-Type: application/json
+
+ {
+      "name": { "first": "reg user", "last": "last name" },
+      "isBusiness": true,
+      "phone": "0544567890",
+      "email": "bizUser555@example.com",
+      "password": "Ad054851*",
+      "address": {
+        "country": "israel",
+        "city": "hadera",
+        "street": "herzel",
+        "houseNumber": "24"
+      },
+      "image": { "url": "https://cdn.pixabay.com/photo/2024/01/20/16/28/rose-8521466_640.jpg", "alt": "flower" }
+    }
+
+### login user
+POST {{local}}/api/users/login
+Content-Type: application/json
+
+{
+    "email": "bizUser555@example.com", 
+    "password": "Ad054851*"
+}
+
+### get all users
+GET {{local}}/api/users
+x-auth-token: {{token}}
+
+### get user by id
+GET {{local}}/api/users/65cc6b4ef38f181d3b0392ad
+x-auth-token: {{token}}
+
+### edit user 
+PUT {{local}}/api/users/65cbc848fc247ad1c148abb4
+x-auth-token: {{token}}
+Content-Type: application/json
+
+{
+  "name": {
+    "first": "biz user test1",
+    "last": "last name"
+  },
+  "phone": "0544567892",
+  "email": "bizUser102@example.com",
+  "image": {
+    "url": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+    "alt": "user image"
+  },
+  "address": {
+    "country": "israel",
+    "city": "hadera",
+    "street": "herzel",
+    "houseNumber": 24,
+    "zip": 1
+  },
+  "isBusiness": true
+}
+
+### change isBusiness status
+PATCH {{local}}/api/users/{{userId}}
+x-auth-token: {{token}}
+
+### delete user
+DELETE {{local}}/api/users/65cbe977330da41501cc43e4
+x-auth-token: {{token}} 
+
+### create new card
+POST {{local}}/api/cards
+Content-Type: application/json
+x-auth-token: {{token}}
+
+{
+      "title": "E card",
+      "subtitle": "subtitle for card three",
+      "description": "the data of card three",
+      "phone": "0525563256",
+      "email": "email3630@example.com",
+      "web": "https://www.card3.co.il",
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "address": {
+        "state": "",
+        "country": "israel",
+        "city": "haifa",
+        "street": "haroe",
+        "houseNumber": "25",
+        "zip": "55"
+      }
+    }
+
+### Get all cards
+GET {{local}}/api/cards
+
+
+### Get Card by id
+GET {{local}}/api/cards/65cc9bd72e848b25bc07b01a
+
+
+### Get user cards
+GET {{local}}/api/cards/my-cards
+x-auth-token: {{token}}
+
+### edit card
+PUT {{local}}/api/cards/65cbc849fc247ad1c148abbf
+x-auth-token: {{token}}
+Content-Type: application/json
+
+{
+      "title": "p card",
+      "subtitle": "subtitle for card three",
+      "description": "the data of card three",
+      "phone": "0525563250",
+      "email": "email37004@example.com",
+      "web": "https://www.card3.co.il",
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "address": {
+        "state": "",
+        "country": "israel",
+        "city": "haifa",
+        "street": "haroe",
+        "houseNumber": "111",
+        "zip": "55"
+      }
+    }
+
+### like card
+PATCH {{local}}/api/cards/65cc6958f38f181d3b039290
+x-auth-token: {{token}}
+Content-Type: application/json
+
+
+### Delete Card
+DELETE {{local}}/api/cards/65cc950ba6aa1d44a5bb5532
+x-auth-token: {{token}}

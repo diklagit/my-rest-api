@@ -1,0 +1,119 @@
+{
+  "users": [
+    {
+      "name": { "first": "private user", "last": "last name" },
+      "isBusiness": false,
+      "phone": "0544567890",
+      "email": "privateUser@example.com",
+      "password": "Ad054852*",
+      "address": {
+        "country": "israel",
+        "city": "hadera",
+        "street": "herzel",
+        "houseNumber": "24"
+      },
+      "image": { "url": "", "alt": "" }
+    },
+    {
+      "name": { "first": "business user", "last": "last name" },
+      "isBusiness": true,
+
+      "phone": "0526543210",
+      "email": "bizUser@example.com",
+      "password": "Le654258_",
+      "address": {
+        "country": "israel",
+        "city": "ramat-gan",
+        "street": "habonim",
+        "houseNumber": "13"
+      },
+      "image": { "url": "", "alt": "" }
+    },
+    {
+      "name": { "first": "admin", "last": "last name" },
+      "isBusiness": false,
+
+      "isAdmin": true,
+      "phone": "054-5665742",
+      "email": "adminUser@example.com",
+      "password": "Wt!45590er",
+      "address": {
+        "country": "israel",
+        "city": "jerusalem",
+        "street": "jaffa",
+        "houseNumber": "2"
+      },
+      "image": { "url": "", "alt": "" }
+    }
+  ],
+
+  "cards": [
+    {
+      "bizNumber": 5432167890,
+      "title": "card one",
+      "subtitle": "subtitle for card one",
+      "description": "the data of card one",
+      "phone": "050-5421153",
+      "email": "email1@example.com",
+      "user_id": "65c8f0785da35945cdb26ac1",
+      "web": "https://www.card1.co.il",
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "address": {
+        "state": "",
+        "country": "israel",
+        "city": "tel-aviv",
+        "street": "hashlosha",
+        "houseNumber": "11",
+        "zip": "0"
+      }
+    },
+    {
+      "title": "card two",
+      "bizNumber": 9087654321,
+
+      "subtitle": "subtitle for card two",
+      "description": "the data of card two",
+      "phone": "054-5784512",
+      "email": "email2@example.com",
+      "user_id": "65c8f0785da35945cdb26ac3",
+      "web": "https://www.card2.co.il",
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "address": {
+        "state": "",
+        "country": "israel",
+        "city": "netanye",
+        "street": "haazmaut",
+        "houseNumber": "54",
+        "zip": "203"
+      }
+    },
+    {
+      "title": "card three",
+      "bizNumber": 1234567890,
+      "subtitle": "subtitle for card three",
+      "description": "the data of card three",
+      "phone": "052-5563256",
+      "email": "email3@example.com",
+      "user_id": "65c8f0785da35945cdb26ac4",
+      "web": "https://www.card3.co.il",
+      "image": {
+        "url": "",
+        "alt": ""
+      },
+      "address": {
+        "state": "",
+        "country": "israel",
+        "city": "haifa",
+        "street": "haroe",
+        "houseNumber": "25",
+        "zip": "55"
+      }
+    }
+  ]
+}
