@@ -1,4 +1,4 @@
-# my rest api proj
+# my-rest-api proj
 Hello, my name is Dikla and this is my node.js project- 'my rest api'.
 this project is a Server-side development for a web application that includes a website management system that allows business users
 publish content, edit and delete it.
