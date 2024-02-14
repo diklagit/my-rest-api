@@ -120,7 +120,7 @@ const Card = mongoose.model('Card', cardsSchema, 'cards');
 
 function validateCard(card) {
   const schema = Joi.object({
-    title: Joi.string().min(2).max(256).required().label('Title'),
+    title: Joi.string().min(1).max(256).required().label('Title'),
     subtitle: Joi.string().min(2).max(256).label('Subtitle'),
     description: Joi.string().min(2).max(1024).required().label('Description'),
     phone: Joi.string()
