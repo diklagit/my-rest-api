@@ -54,7 +54,7 @@ a file whose name will be the date of that day (unless this file already exists)
 the request date, the code status, and the error message
 
 #### endpoints:
-the routes files contains several endpoints, which defined the actions that can be used on the backend server's app.
+the routes files, by controllers files, contains several endpoints, which defined the actions that can be used on the backend server's app.
 api's I have made using postman, in the links below:
 
 -
