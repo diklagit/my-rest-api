@@ -55,10 +55,6 @@ the request date, the code status, and the error message
 
 #### endpoints:
 the routes files, by controllers files, contains several endpoints, which defined the actions that can be used on the backend server's app.
-api's I have made using postman, in the links below:
-
--
--
 
 ### initial data
 three instances of business cards and three instances of users are created: regular user, business and admin.
