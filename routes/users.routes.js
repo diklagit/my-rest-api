@@ -19,17 +19,5 @@ router.patch('/:id', authorize, changeIsBusinessStatus);
 
 //delete user
 router.delete('/:id', authorize, deleteUser);
-// router.post('/login', async (req,res)=>{
-
-//    const user = await User.findOne({ email: req.body.email });
-//    const isValid = user && await bcrypt.compare(req.body.password, user.password);
-//    if (!isValid) {
-//      res.status(400).send('Invalid email or password');
-//      return;
-//    }
-
-//    const token = user.generateAuthToken();
-//    res.status(400).send(token);
-// })
 
 module.exports = router;

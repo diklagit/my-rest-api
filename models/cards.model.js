@@ -116,11 +116,9 @@ const cardsSchema = new mongoose.Schema({
 
 const Card = mongoose.model('Card', cardsSchema, 'cards');
 
-//example: Card.findOne({ bizNumber: 200 }).populate('user_id');
-
 function validateCard(card) {
   const schema = Joi.object({
-    title: Joi.string().min(1).max(256).required().label('Title'),
+    title: Joi.string().min(2).max(256).required().label('Title'),
     subtitle: Joi.string().min(2).max(256).label('Subtitle'),
     description: Joi.string().min(2).max(1024).required().label('Description'),
     phone: Joi.string()
@@ -151,9 +149,6 @@ function validateCard(card) {
       zip: Joi.number().min(1).label('Zip Code').allow(''),
     }).required(),
   }).required();
-  //or:.min(1)
-
-  // return schema.validate(card);
 
   const { error } = schema.validate(card, { abortEarly: false });
 

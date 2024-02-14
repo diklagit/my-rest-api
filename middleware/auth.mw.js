@@ -27,7 +27,6 @@ function authRoles(checkIsAdmin, checkIsBusiness) {
       res.status(400).send(`you don't have authorization`);
       return;
     }
-
     next();
   }
 

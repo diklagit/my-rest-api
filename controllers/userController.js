@@ -96,11 +96,6 @@ async function editUser(req, res) {
       return;
     }
 
-    //   if (card.user_id !== req.user._id && !req.user.isAdmin) {
-    //     res.status(400).send('Only admin or user allowed to edit.');
-    //     return;
-    //   }
-
     const updatedUser = await User.findByIdAndUpdate(
       { _id: req.params.id, user_id: req.user._id },
       req.body,
@@ -119,14 +114,6 @@ async function editUser(req, res) {
 
 async function changeIsBusinessStatus(req, res) {
   try {
-    // validate user's input
-    // const error = validateUser(req.body);
-    // if (error) {
-    //   console.log(error);
-    //   res.status(400).json({ error });
-    //   return;
-    // }
-
     // validate system & process
     if (req.user._id !== req.params.id) {
       res.status(400).send('The user is not allowed to access other users');
@@ -134,7 +121,6 @@ async function changeIsBusinessStatus(req, res) {
     }
     let user = await User.findById(req.params.id);
     user = await User.findByIdAndUpdate(
-      //   req.params.id,
       { _id: req.params.id, user_id: req.user._id },
       { isBusiness: !user.isBusiness },
       { new: true }

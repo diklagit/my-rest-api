@@ -5,18 +5,6 @@ global.appRoot = path.resolve(__dirname);
 const { seed } = require('./initialData/initialDataService');
 const { logger, isLogsDirectoryExist } = require('./utils/logger');
 
-// require('dotenv/config');
-
-// const mongoose = require('mongoose');
-
-// mongoose
-//   .connect(
-//     ` mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@my-rest-api-proj.2s8ytix.mongodb.net/my_rest_api`
-//   )
-
-//   .then(() => console.log('connected to db'))
-//   .catch((err) => console.log('could not connect to db', err));
-
 const express = require('express');
 const morgan = require('morgan');
 
@@ -49,28 +37,3 @@ require('./db/dbService')
       chalkLogComplete(`listening on port: ${config.app.port}`);
     });
   });
-
-//chalk :
-
-// const log = console.log;
-
-// // Combine styled and normal strings
-// log(chalk.blue('Hello') + ' World' + chalk.red('!'));
-
-// // Compose multiple styles using the chainable API
-// log(chalk.blue.bgRed.bold('Hello world!'));
-
-// // Pass in multiple arguments
-// log(chalk.blue('Hello', 'World!', 'Foo', 'bar', 'biz', 'baz'));
-
-// // Nest styles
-// log(chalk.red('Hello', chalk.underline.bgBlue('world') + '!'));
-
-// // Nest styles of the same type even (color, underline, background)
-// log(
-//   chalk.green(
-//     'I am a green line ' +
-//       chalk.blue.underline.bold('with a blue substring') +
-//       ' that becomes green again!'
-//   )
-// );

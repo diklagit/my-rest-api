@@ -1,7 +1,6 @@
 const { users, cards } = require('./initialData.json');
 const { User } = require('../models/users.model');
 const { Card } = require('../models/cards.model');
-const mongoose = require('mongoose');
 const _ = require('lodash');
 const bcrypt = require('bcrypt');
 const { chalkLogErr, chalkLogComplete } = require('../utils/chalk');
@@ -23,9 +22,6 @@ async function seed({ fullReset = false } = {}) {
     const existingCardsCount = await Card.countDocuments();
 
     if (existingUsersCount > 0 || existingCardsCount > 0) {
-      // successLog(
-      //   'The users and cards already exist, skipping the seeding process.'
-      // );
       return;
     }
 

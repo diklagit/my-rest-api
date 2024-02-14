@@ -3,8 +3,6 @@ const path = require('path');
 const { chalkLogErr, chalkLogComplete } = require('./chalk');
 
 const logger = (req, res, next) => {
-  // Ensure the logs directory exists
-  // isLogsDirectoryExist();
 
   // Capture the original response.send function
   const originalSend = res.send;
@@ -51,13 +49,5 @@ function isLogsDirectoryExist() {
     chalkLogComplete('Logs directory created');
   }
 }
-
-// function isFileExist() {
-//   if (!fs.existsSync(`${__dirname}/../logs`)) {
-//     chalkLogDanger('Creating logs directory');
-//     fs.mkdirSync(`${__dirname}/../logs`);
-//   }
-//   chalkLogComplete('file was checked.');
-// }
 
 module.exports = { logger, isLogsDirectoryExist };

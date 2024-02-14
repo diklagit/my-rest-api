@@ -20,9 +20,6 @@ async function getAllCards(req, res) {
     chalkLogErr(error);
     res.status(500).send('error: ' + error.message);
   }
-
-  //or: res.json(await card.populate('user_id'))
-  //or: res.json(await User.findById(card.user_id))
 }
 
 async function getUserCards(req, res) {
@@ -155,20 +152,6 @@ async function likeCard(req, res) {
     // carry out update
     card.save();
 
-    // // validate system & process
-    // const card = await Card.findOneAndUpdate(
-    //   {
-    //     user_id: req.user._id,
-    //   },
-    //   (req.card.liked = !req.card.liked),
-    //   { new: true }
-    // );
-
-    // if (!card) {
-    //   res.status(400).send('The card with the given ID was not found');
-    //   return;
-    // }
-
     // response
     res.json(card);
   } catch (error) {
@@ -179,8 +162,6 @@ async function likeCard(req, res) {
 
 async function deleteCard(req, res) {
   try {
-    // Can't use authRoles middleware generator, because the user can also get their own details
-    // without being an admin
     const cardToDelete = await Card.findById(req.params.id);
 
     if (!cardToDelete) {
@@ -199,8 +180,6 @@ async function deleteCard(req, res) {
 
     const deletedCard = await Card.findOneAndDelete({
       _id: req.params.id,
-      //   user_id: req.user._id,
-      //   || Card.find({ isAdmin: true }).populate('user_id'),
     });
 
     res.json(deletedCard);

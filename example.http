@@ -38,7 +38,7 @@ GET {{local}}/api/users/65cc6b4ef38f181d3b0392ad
 x-auth-token: {{token}}
 
 ### edit user 
-PUT {{local}}/api/users/65cbc848fc247ad1c148abb4
+PUT {{local}}/api/users/{{userId}}
 x-auth-token: {{token}}
 Content-Type: application/json
 

@@ -16,10 +16,6 @@ const chalkLogProcess = function (message, log) {
   return console.log(chalk.blue(message, log));
 };
 
-// const separateLine = function () {
-//   return console.log(chalk.white('----------------------------------------'));
-// };
-
 module.exports = {
   chalkLogErr,
   chalkLogDanger,
