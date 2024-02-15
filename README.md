@@ -1,8 +1,7 @@
 # my-rest-api proj
 Hello, my name is Dikla and this is my node.js project- 'my rest api'.
 this project is a Server-side development for a web application that includes a website management system that allows business users
-publish content, edit and delete it.
-the actions that this app is offering are: 
+publish content, edit and delete it. 
 
 the technologies I used for this project are:
 - node j.s
@@ -53,11 +52,9 @@ the logger file operates on all requests with a status code of 400 or higher and
 a file whose name will be the date of that day (unless this file already exists), and in it will be recorded:
 the request date, the code status, and the error message
 
-#### endpoints:
+### endpoints:
 the routes files, by controllers files, contains several endpoints, which defined the actions that can be used on the backend server's app.
 
 ### initial data
-three instances of business cards and three instances of users are created: regular user, business and admin.
-
-
+three instances of business cards and three instances of users (regular user, business and admin) are created.
 
