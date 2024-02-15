@@ -44,10 +44,10 @@ return a reply to the surfer with the appropriate status and the appropriate err
 
 - reciving json in the body of HTTP requests are enabled requests that are not intercepted by the application are routed to the public folder (inside static folder) on the server, and only if the file not found in it sending a 404 error message to the surfer with the appropriate caption
 
-### env's
+### env's:
 it also includes env.development.example (using: npm run dev) and env.production.example (using: npm run start), in order to use this backend server on two optional environments (local and atlas cloud).
 
-### logger
+### logger:
 the logger file operates on all requests with a status code of 400 or higher and creates for each one in the logs folder
 a file whose name will be the date of that day (unless this file already exists), and in it will be recorded:
 the request date, the code status, and the error message
@@ -55,9 +55,9 @@ the request date, the code status, and the error message
 ### endpoints:
 the routes files, by controllers files, contains several endpoints, which defined the actions that can be used on the backend server's app.
 
-### initial data
+### initial data:
 three instances of business cards and three instances of users (regular user, business and admin) are created.
 
-### blocking user
+### blocking user:
 user who tried to log in three times in a row, using the same email but with an incorrect password, is blocked for 24 hours.
 
