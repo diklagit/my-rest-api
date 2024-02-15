@@ -114,6 +114,7 @@ const userSchema = new mongoose.Schema(
       required: true,
       default: Date.now,
     },
+    
   },
   {
     methods: {
