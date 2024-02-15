@@ -58,3 +58,6 @@ the routes files, by controllers files, contains several endpoints, which define
 ### initial data
 three instances of business cards and three instances of users (regular user, business and admin) are created.
 
+### blocking user
+user who tried to log in three times in a row, using the same email but with an incorrect password, is blocked for 24 hours.
+
