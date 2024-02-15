@@ -52,7 +52,7 @@ the logger file operates on all requests with a status code of 400 or higher and
 a file whose name will be the date of that day (unless this file already exists), and in it will be recorded:
 the request date, the code status, and the error message
 
-#### endpoints:
+### endpoints:
 the routes files, by controllers files, contains several endpoints, which defined the actions that can be used on the backend server's app.
 
 ### initial data
