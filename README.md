@@ -56,7 +56,5 @@ the request date, the code status, and the error message
 the routes files, by controllers files, contains several endpoints, which defined the actions that can be used on the backend server's app.
 
 ### initial data
-three instances of business cards and three instances of users are created: regular user, business and admin.
-
-
+three instances of business cards and three instances of users (regular user, business and admin) are created.
 
