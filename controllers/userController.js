@@ -1,7 +1,7 @@
 const { User, validateUser } = require('../models/users.model');
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
-const { chalkLogErr, chalkLogRegisterUser } = require('../utils/chalk');
+const { chalkLogErr, chalkLogRegisteredUser } = require('../utils/chalk');
 
 async function registerUser(req, res) {
   try {
@@ -38,7 +38,7 @@ async function registerUser(req, res) {
     await newUser.save();
 
     // response
-    chalkLogRegisterUser('the user registered successfully!');
+    chalkLogRegisteredUser('the user registered successfully!');
     res.json(_.pick(newUser, ['_id', 'name', 'email']));
   } catch (error) {
     chalkLogErr(error);

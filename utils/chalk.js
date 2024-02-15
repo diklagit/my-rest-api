@@ -8,7 +8,7 @@ const chalkLogDanger = function (message, log) {
   return console.log(chalk.hex('#FFA500')(message, log));
 };
 
-const chalkLogRegisterUser = function (message, log) {
+const chalkLogRegisteredUser = function (message, log) {
   return console.log(chalk.bgMagenta(message, log));
 };
 
@@ -31,7 +31,7 @@ const chalkLogAttempts = function (message, log) {
 module.exports = {
   chalkLogErr,
   chalkLogDanger,
-  chalkLogRegisterUser,
+  chalkLogRegisteredUser,
   chalkLogSignedUser,
   chalkLogComplete,
   chalkLogProcess,
