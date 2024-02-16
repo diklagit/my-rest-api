@@ -16,6 +16,10 @@ const chalkLogSignedUser = function (message, log) {
   return console.log(chalk.inverse.bold(message, log));
 };
 
+const chalkLogUnBlockedUser = function (message, log) {
+  return console.log(chalk.bgGreen(message, log));
+};
+
 const chalkLogComplete = function (message, log) {
   return console.log(chalk.green(message, log));
 };
@@ -33,6 +37,7 @@ module.exports = {
   chalkLogDanger,
   chalkLogRegisteredUser,
   chalkLogSignedUser,
+  chalkLogUnBlockedUser,
   chalkLogComplete,
   chalkLogProcess,
   chalkLogAttempts,

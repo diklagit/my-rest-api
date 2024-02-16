@@ -7,6 +7,7 @@ const {
   chalkLogErr,
   chalkLogAttempts,
   chalkLogSignedUser,
+  chalkLogUnBlockedUser,
 } = require('../utils/chalk');
 
 // Login user
@@ -83,6 +84,18 @@ router.post('/', async (req, res) => {
       loginUserTry.loginAttempts = 0;
       loginUserTry.blockEndDate = null;
       await loginUserTry.save();
+    }
+
+    // Delete the document from the collection if the blocking period has ended
+    if (
+      loginUserTry &&
+      loginUserTry.blockEndDate &&
+      loginUserTry.blockEndDate <= Date.now()
+    ) {
+      await LoginAttemptsUser.findOneAndDelete({ email: req.body.email });
+      chalkLogUnBlockedUser(
+        'the user`s blocked period is over, and was signed-in successfully!'
+      );
     }
 
     // Generate authentication token
