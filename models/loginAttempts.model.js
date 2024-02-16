@@ -15,7 +15,7 @@ const loginUsers = new mongoose.Schema({
 const LoginAttemptsUser = mongoose.model(
   'LoginAttemptsUser',
   loginUsers,
-  'LoginAttemptsUsers'
+  'loginAttemptsUsers'
 );
 
 module.exports = {
