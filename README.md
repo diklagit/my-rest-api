@@ -47,16 +47,16 @@ return a reply to the surfer with the appropriate status and the appropriate err
 ### env's:
 it also includes env.development.example (using: npm run dev) and env.production.example (using: npm run start), in order to use this backend server on two optional environments (local and atlas cloud).
 
-### logger:
-the logger file operates on all requests with a status code of 400 or higher and creates for each one in the logs folder
-a file whose name will be the date of that day (unless this file already exists), and in it will be recorded:
-the request date, the code status, and the error message
-
 ### endpoints:
 the routes files, by controllers files, contains several endpoints, which defined the actions that can be used on the backend server's app.
 
 ### initial data:
 three instances of business cards and three instances of users (regular user, business and admin) are created.
+
+### logger:
+the logger file operates on all requests with a status code of 400 or higher and creates for each one in the logs folder
+a file whose name will be the date of that day (unless this file already exists), and in it will be recorded:
+the request date, the code status, and the error message
 
 ### blocking user:
 user who tried to log in three times in a row, using the same email but with an incorrect password, is blocked for 24 hours.
