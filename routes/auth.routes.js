@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
       loginUserTry.blockEndDate &&
       loginUserTry.blockEndDate > Date.now()
     ) {
-      let formattedBlockEndDate = new Date(
+      const formattedBlockEndDate = new Date(
         loginUserTry.blockEndDate
       ).toLocaleString();
       return res
@@ -54,7 +54,7 @@ router.post('/', async (req, res) => {
           loginUserTry.blockEndDate = Date.now() + 24 * 60 * 60 * 1000; // 24 hours
           await loginUserTry.save();
           logAttempts(req.body.email, loginUserTry.loginAttempts);
-          let formattedBlockEndDate = new Date(
+          const formattedBlockEndDate = new Date(
             loginUserTry.blockEndDate
           ).toLocaleString();
           return res
