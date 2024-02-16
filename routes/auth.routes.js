@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User } = require('../models/users.model');
 const bcrypt = require('bcrypt');
 const Joi = require('joi');
-const { BlockedUser } = require('../models/loginAttempts');
+const { BlockedUser } = require('../models/loginAttempts.model');
 const {
   chalkLogErr,
   chalkLogAttempts,
