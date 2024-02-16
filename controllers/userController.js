@@ -42,7 +42,7 @@ async function registerUser(req, res) {
     res.json(_.pick(newUser, ['_id', 'name', 'email']));
   } catch (error) {
     chalkLogErr(error);
-    res.status(500).send('error: ' + error.message);
+    res.status(500).send('server error: ' + error.message);
   }
 }
 
@@ -52,7 +52,7 @@ async function getAllUsers(req, res) {
     res.json(users);
   } catch (error) {
     chalkLogErr(error);
-    res.status(500).send('error: ' + error.message);
+    res.status(500).send('server error: ' + error.message);
   }
 }
 
@@ -71,7 +71,7 @@ async function getUserById(req, res) {
     res.json(user);
   } catch (error) {
     chalkLogErr(error);
-    res.status(500).send('error: ' + error.message);
+    res.status(500).send('server error: ' + error.message);
   }
 }
 
@@ -136,7 +136,7 @@ async function changeIsBusinessStatus(req, res) {
     res.json(user);
   } catch (error) {
     chalkLogErr(error);
-    res.status(500).send('error: ' + error.message);
+    res.status(500).send('server error: ' + error.message);
   }
 }
 
@@ -159,7 +159,7 @@ async function deleteUser(req, res) {
     res.json(user);
   } catch (error) {
     chalkLogErr(error);
-    res.status(500).send('error: ' + error.message);
+    res.status(500).send('server error: ' + error.message);
   }
 }
 

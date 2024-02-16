@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User } = require('../models/users.model');
 const bcrypt = require('bcrypt');
 const Joi = require('joi');
-const { BlockedUser } = require('../models/loginAttempts.model');
+const { LoginAttemptsUser } = require('../models/loginAttempts.model');
 const {
   chalkLogErr,
   chalkLogAttempts,
@@ -25,13 +25,17 @@ router.post('/', async (req, res) => {
     }
 
     // Check if user is blocked
-    const loginUserTry = await BlockedUser.findOne({ email: req.body.email });
+    const loginUserTry = await LoginAttemptsUser.findOne({
+      email: req.body.email,
+    });
     if (
       loginUserTry &&
       loginUserTry.blockEndDate &&
       loginUserTry.blockEndDate > Date.now()
     ) {
-      return res.status(401).send('User is blocked. Try again later.');
+      return res
+        .status(401)
+        .send(`User is blocked, Try again at ${loginUserTry.blockEndDate}.`);
     }
 
     // Validate password
@@ -48,9 +52,9 @@ router.post('/', async (req, res) => {
           await loginUserTry.save();
           logAttempts(req.body.email, loginUserTry.loginAttempts);
           return res
-            .status(400)
+            .status(401)
             .send(
-              'Your account is temporarily locked for 24 hours due to excessive login attempts'
+              `Your account is temporarily locked for 24 hours (until: ${loginUserTry.blockEndDate}), due to excessive login attempts`
             );
         } else {
           await loginUserTry.save();
@@ -58,11 +62,11 @@ router.post('/', async (req, res) => {
           return res.status(400).send('Invalid email or password');
         }
       } else {
-        const newBlockedUser = new BlockedUser({
+        const newLoginAttemptsUser = new LoginAttemptsUser({
           email: req.body.email,
           loginAttempts: 1,
         });
-        await newBlockedUser.save();
+        await newLoginAttemptsUser.save();
         logAttempts(req.body.email, 1);
         return res.status(400).send('Invalid email or password');
       }
@@ -83,15 +87,15 @@ router.post('/', async (req, res) => {
     res.json({ token });
   } catch (error) {
     chalkLogErr(error);
-    res.status(500).send('Internal Server Error');
+    res.status(500).send('server error: ' + error.message);
   }
 });
 
 // Validate login input
 function validateLogin(user) {
   const schema = Joi.object({
-    email: Joi.string().min(5).max(255).required().email(),
-    password: Joi.string().min(8).max(255).required(),
+    email: Joi.string().min(5).max(256).required().email(),
+    password: Joi.string().min(8).max(1024).required(),
   });
 
   return schema.validate(user);

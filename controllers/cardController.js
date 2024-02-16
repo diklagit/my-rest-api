@@ -18,7 +18,7 @@ async function getAllCards(req, res) {
     res.json(cards);
   } catch (error) {
     chalkLogErr(error);
-    res.status(500).send('error: ' + error.message);
+    res.status(500).send('server error: ' + error.message);
   }
 }
 
@@ -36,7 +36,7 @@ async function getUserCards(req, res) {
     res.json(cards);
   } catch (error) {
     chalkLogErr(error);
-    res.status(500).send('error: ' + error.message);
+    res.status(500).send('server error: ' + error.message);
   }
 }
 
@@ -58,7 +58,7 @@ async function getCardById(req, res) {
     res.json(card);
   } catch (error) {
     chalkLogErr(error);
-    res.status(500).send('error: ' + error.message);
+    res.status(500).send('server error: ' + error.message);
   }
 }
 
@@ -91,7 +91,7 @@ async function createNewCard(req, res) {
     res.json(card);
   } catch (error) {
     chalkLogErr(error);
-    res.status(500).send('error: ' + error.message);
+    res.status(500).send('server error: ' + error.message);
   }
 }
 
@@ -129,7 +129,7 @@ async function editCard(req, res) {
     res.json(updatedCard);
   } catch (error) {
     chalkLogErr(error);
-    res.status(500).send('error: ' + error.message);
+    res.status(500).send('server error: ' + error.message);
   }
 }
 
@@ -156,7 +156,7 @@ async function likeCard(req, res) {
     res.json(card);
   } catch (error) {
     chalkLogErr(error);
-    res.status(500).send('error: ' + error.message);
+    res.status(500).send('server error: ' + error.message);
   }
 }
 
@@ -185,7 +185,7 @@ async function deleteCard(req, res) {
     res.json(deletedCard);
   } catch (error) {
     chalkLogErr(error);
-    res.status(500).send('error: ' + error.message);
+    res.status(500).send('server error: ' + error.message);
   }
 }
 

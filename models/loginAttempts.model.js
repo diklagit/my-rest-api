@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const blockLoginUser = new mongoose.Schema({
+const loginUsers = new mongoose.Schema({
   email: {
     type: String,
   },
@@ -12,12 +12,12 @@ const blockLoginUser = new mongoose.Schema({
   },
 });
 
-const BlockedUser = mongoose.model(
-  'BlockedUser',
-  blockLoginUser,
-  'blockedUsers'
+const LoginAttemptsUser = mongoose.model(
+  'LoginAttemptsUser',
+  loginUsers,
+  'LoginAttemptsUsers'
 );
 
 module.exports = {
-  BlockedUser,
+  LoginAttemptsUser,
 };

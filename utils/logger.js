@@ -3,18 +3,13 @@ const path = require('path');
 const { chalkLogErr, chalkLogComplete } = require('./chalk');
 
 const logger = (req, res, next) => {
-
   // Capture the original response.send function
   const originalSend = res.send;
 
   // Override response.send function
   res.send = function (body) {
     if (res.statusCode >= 400) {
-      const logFilePath = path.join(
-        appRoot,
-        'logs',
-        `${getCurrentDate()}.log`
-      );
+      const logFilePath = path.join(appRoot, 'logs', `${getCurrentDate()}.log`);
       const logMessage = `[${new Date().toISOString()}] ${
         res.statusCode
       }: ${body}\n`;

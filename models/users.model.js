@@ -152,7 +152,7 @@ function validateUser(user, requestMethod) {
       .email({ tlds: { allow: false } }),
     password: Joi.string()
       .min(8)
-      .max(20)
+      .max(1024)
       .regex(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*-])[A-Za-z\d!@#$%^&*-]{8,}$/
       )
