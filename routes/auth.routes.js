@@ -33,9 +33,12 @@ router.post('/', async (req, res) => {
       loginUserTry.blockEndDate &&
       loginUserTry.blockEndDate > Date.now()
     ) {
+      let formattedBlockEndDate = new Date(
+        loginUserTry.blockEndDate
+      ).toLocaleString();
       return res
         .status(401)
-        .send(`User is blocked, Try again at ${loginUserTry.blockEndDate}.`);
+        .send(`User is blocked, Try again at: ${formattedBlockEndDate}.`);
     }
 
     // Validate password
@@ -51,10 +54,13 @@ router.post('/', async (req, res) => {
           loginUserTry.blockEndDate = Date.now() + 24 * 60 * 60 * 1000; // 24 hours
           await loginUserTry.save();
           logAttempts(req.body.email, loginUserTry.loginAttempts);
+          let formattedBlockEndDate = new Date(
+            loginUserTry.blockEndDate
+          ).toLocaleString();
           return res
             .status(401)
             .send(
-              `Your account is temporarily locked for 24 hours (until: ${loginUserTry.blockEndDate}), due to excessive login attempts`
+              `'Your account is temporarily locked for 24 hours until: ' ${formattedBlockEndDate}, due to excessive login attempts.`
             );
         } else {
           await loginUserTry.save();
@@ -103,7 +109,7 @@ function validateLogin(user) {
 
 // Log login attempt
 function logAttempts(email, attempts) {
-  const logMessage = `[${new Date().toISOString()}] Login attempt for ${email}. Attempts: ${attempts}\n`;
+  const logMessage = `[${new Date().toLocaleString()}] Login attempt for ${email}. Attempts: ${attempts}\n`;
   chalkLogAttempts(logMessage); // Replace with your logging mechanism (e.g., file logging)
 }
 
