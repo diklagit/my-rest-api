@@ -9,7 +9,7 @@ Content-Type: application/json
       "name": { "first": "reg user", "last": "last name" },
       "isBusiness": false,
       "phone": "0544567892",
-      "email": "bizUser617@example.com",
+      "email": "bizUser624@example.com",
       "password": "Ad054851*",
       "address": {
         "country": "israel",
@@ -25,7 +25,7 @@ POST {{local}}/api/users/login
 Content-Type: application/json
 
 {
-    "email": "bizUser617@example.com", 
+    "email": "bizUser624@example.com", 
     "password": "Ad054852*"
 }
 

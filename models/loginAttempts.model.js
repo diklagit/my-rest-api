@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
 
-const loginUsers = new mongoose.Schema({
+const loginUsersSchema = new mongoose.Schema({
   email: {
     type: String,
+    required: true,
   },
   loginAttempts: {
     type: Number,
+    required: true,
+    default: 0,
   },
   blockEndDate: {
     type: Date,
@@ -14,7 +17,7 @@ const loginUsers = new mongoose.Schema({
 
 const LoginAttemptsUser = mongoose.model(
   'LoginAttemptsUser',
-  loginUsers,
+  loginUsersSchema,
   'loginAttemptsUsers'
 );
 
