@@ -134,21 +134,19 @@ function validateUser(user, requestMethod) {
   const schema = Joi.object({
     // name
     name: Joi.object({
-      first: Joi.string().min(2).max(256).required().label('First Name'),
-      middle: Joi.string().min(2).max(256).label('Middle Name').allow(''),
-      last: Joi.string().min(2).max(256).required().label('Last Name'),
+      first: Joi.string().min(2).max(256).required(),
+      middle: Joi.string().min(2).max(256).allow(''),
+      last: Joi.string().min(2).max(256).required(),
     }).required(),
     phone: Joi.string()
       .min(9)
       .max(11)
       .required()
-      .regex(/^0[2-9]\d{7,8}$/)
-      .label('Phone'),
+      .regex(/^0[2-9]\d{7,8}$/),
     email: Joi.string()
       .min(5)
       .max(256)
       .required()
-      .label('Email')
       .email({ tlds: { allow: false } }),
     password: Joi.string()
       .min(8)
@@ -165,21 +163,20 @@ function validateUser(user, requestMethod) {
       }),
     // address
     address: Joi.object({
-      state: Joi.string().min(2).max(256).label('State').allow(''),
-      country: Joi.string().min(2).max(256).required().label('Country'),
-      city: Joi.string().min(2).max(256).required().label('City'),
-      street: Joi.string().min(2).max(256).required().label('Street'),
+      state: Joi.string().min(2).max(256).allow(''),
+      country: Joi.string().min(2).max(256).required(),
+      city: Joi.string().min(2).max(256).required(),
+      street: Joi.string().min(2).max(256).required(),
       houseNumber: Joi.number()
         .min(1)
         .max(256)
-        .required()
-        .label('House Number'),
-      zip: Joi.number().max(256).label('Zip Code'),
+        .required(),
+      zip: Joi.number().max(256),
     }).required(),
     // image
     image: Joi.object({
-      url: Joi.string().min(14).max(1024).label('Image url').allow(''),
-      alt: Joi.string().min(2).max(256).label('Image description').allow(''),
+      url: Joi.string().min(14).max(1024).allow(''),
+      alt: Joi.string().min(2).max(256).allow(''),
     }).required(),
     isAdmin: Joi.boolean(),
     isBusiness: Joi.boolean().required(),

@@ -118,35 +118,33 @@ const Card = mongoose.model('Card', cardsSchema, 'cards');
 
 function validateCard(card) {
   const schema = Joi.object({
-    title: Joi.string().min(2).max(256).required().label('Title'),
-    subtitle: Joi.string().min(2).max(256).label('Subtitle'),
-    description: Joi.string().min(2).max(1024).required().label('Description'),
+    title: Joi.string().min(2).max(256).required(),
+    subtitle: Joi.string().min(2).max(256),
+    description: Joi.string().min(2).max(1024).required(),
     phone: Joi.string()
       .min(9)
       .max(11)
       .required()
-      .regex(/^0[2-9]\d{7,8}$/)
-      .label('Phone'),
+      .regex(/^0[2-9]\d{7,8}$/),
     email: Joi.string()
       .min(5)
       .max(256)
       .required()
-      .label('Email')
       .email({ tlds: { allow: false } }),
     web: Joi.string().min(14).max(256).allow(''),
     //image
     image: Joi.object({
-      url: Joi.string().min(14).label('Image url').allow(''),
-      alt: Joi.string().min(2).max(256).label('Image description').allow(''),
+      url: Joi.string().min(14).allow(''),
+      alt: Joi.string().min(2).max(256).allow(''),
     }).required(),
     //address
     address: Joi.object({
-      state: Joi.string().min(2).max(256).label('State').allow(''),
-      country: Joi.string().min(2).max(256).required().label('Country'),
-      city: Joi.string().min(2).max(256).required().label('City'),
-      street: Joi.string().min(2).max(256).required().label('Street'),
-      houseNumber: Joi.number().min(1).required().label('House Number'),
-      zip: Joi.number().min(1).label('Zip Code').allow(''),
+      state: Joi.string().min(2).max(256).allow(''),
+      country: Joi.string().min(2).max(256).required(),
+      city: Joi.string().min(2).max(256).required(),
+      street: Joi.string().min(2).max(256).required(),
+      houseNumber: Joi.number().min(1).required(),
+      zip: Joi.number().min(1).allow(''),
     }).required(),
   }).required();
 

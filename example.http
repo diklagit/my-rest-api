@@ -1,5 +1,5 @@
 @local=http://localhost:3000
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWNjYTVlOGFlZjQ5ZTNlYzJmN2UzYjciLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzA3OTEwNjQyfQ.pV6loR50Ednq6ryT9qYhYUwzi1oCjtl94OefqVUjIR4
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWNmMjM3YzA2NGNkNzRlZTY5OGQwNjUiLCJpc0J1c2luZXNzIjpmYWxzZSwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTcwODA3Mzg4NH0.22IfTRXcpT3OjXVuwABbp7dLIIYtHlGY7aRMiq4K73U
 @userId =65cca5e8aef49e3ec2f7e3b7
 ### register user
 POST {{local}}/api/users
@@ -9,7 +9,7 @@ Content-Type: application/json
       "name": { "first": "reg user", "last": "last name" },
       "isBusiness": false,
       "phone": "0544567892",
-      "email": "bizUser625@example.com",
+      "email": "bizUser628@example.com",
       "password": "Ad054851*",
       "address": {
         "country": "israel",
@@ -25,7 +25,7 @@ POST {{local}}/api/users/login
 Content-Type: application/json
 
 {
-    "email": "bizUser625@example.com", 
+    "email": "bizUser628@example.com", 
     "password": "Ad054852*"
 }
 
