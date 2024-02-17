@@ -81,7 +81,7 @@ router.post('/', async (req, res) => {
 
     // Reset login attempts on successful login
     if (loginUserTry) {
-      loginUserTry.loginAttempts = 0;
+      loginUserTry.loginAttempts = 1;
       loginUserTry.blockEndDate = null;
       await loginUserTry.save();
     }
