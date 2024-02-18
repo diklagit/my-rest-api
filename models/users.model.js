@@ -91,6 +91,7 @@ const userSchema = new mongoose.Schema(
         zip: {
           type: Number,
           required: true,
+          minlength: 1,
           maxlength: 256,
           default: 0,
         },
@@ -111,7 +112,6 @@ const userSchema = new mongoose.Schema(
       required: true,
       default: Date.now,
     },
-    
   },
   {
     methods: {
@@ -164,10 +164,7 @@ function validateUser(user, requestMethod) {
       country: Joi.string().min(2).max(256).required(),
       city: Joi.string().min(2).max(256).required(),
       street: Joi.string().min(2).max(256).required(),
-      houseNumber: Joi.number()
-        .min(1)
-        .max(256)
-        .required(),
+      houseNumber: Joi.number().min(1).max(256).required(),
       zip: Joi.number().min(1).max(256).required(),
     }).required(),
     // image
