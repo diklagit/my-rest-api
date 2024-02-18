@@ -42,13 +42,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       minlength: 8,
-      maxlength: 1024,
+      maxlength: 20,
     },
     image: {
       type: new mongoose.Schema({
         url: {
           type: String,
-          maxlength: 1024,
           default:
             'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
         },
@@ -63,7 +62,6 @@ const userSchema = new mongoose.Schema(
       type: new mongoose.Schema({
         state: {
           type: String,
-          minlength: 2,
           maxlength: 256,
         },
         country: {
@@ -93,7 +91,6 @@ const userSchema = new mongoose.Schema(
         zip: {
           type: Number,
           required: true,
-          minlength: 2,
           maxlength: 256,
           default: 0,
         },
@@ -150,7 +147,7 @@ function validateUser(user, requestMethod) {
       .email({ tlds: { allow: false } }),
     password: Joi.string()
       .min(8)
-      .max(1024)
+      .max(20)
       .regex(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*-])[A-Za-z\d!@#$%^&*-]{8,}$/
       )
@@ -171,11 +168,11 @@ function validateUser(user, requestMethod) {
         .min(1)
         .max(256)
         .required(),
-      zip: Joi.number().max(256),
+      zip: Joi.number().min(1).max(256).required(),
     }).required(),
     // image
     image: Joi.object({
-      url: Joi.string().min(14).max(1024).allow(''),
+      url: Joi.string().min(14).uri().allow(''),
       alt: Joi.string().min(2).max(256).allow(''),
     }).required(),
     isAdmin: Joi.boolean(),

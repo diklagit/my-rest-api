@@ -49,7 +49,7 @@ const cardsSchema = new mongoose.Schema({
       alt: {
         type: String,
         maxlength: 256,
-        default: 'image card',
+        default: 'card image',
       },
     }),
   },
@@ -81,11 +81,12 @@ const cardsSchema = new mongoose.Schema({
         type: Number,
         required: true,
         minlength: 1,
+        maxlength: 256,
       },
       zip: {
         type: Number,
         required: true,
-        minlength: 1,
+        maxlength: 256,
         default: 0,
       },
     }),
@@ -134,7 +135,7 @@ function validateCard(card) {
     web: Joi.string().min(14).max(256).allow(''),
     //image
     image: Joi.object({
-      url: Joi.string().min(14).allow(''),
+      url: Joi.string().min(14).uri().allow(''),
       alt: Joi.string().min(2).max(256).allow(''),
     }).required(),
     //address
@@ -143,8 +144,8 @@ function validateCard(card) {
       country: Joi.string().min(2).max(256).required(),
       city: Joi.string().min(2).max(256).required(),
       street: Joi.string().min(2).max(256).required(),
-      houseNumber: Joi.number().min(1).required(),
-      zip: Joi.number().min(1).allow(''),
+      houseNumber: Joi.number().min(1).max(256).required(),
+      zip: Joi.number().min(1).max(256).allow(''),
     }).required(),
   }).required();
 

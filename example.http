@@ -1,6 +1,6 @@
 @local=http://localhost:3000
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWNmMjM3YzA2NGNkNzRlZTY5OGQwNjUiLCJpc0J1c2luZXNzIjpmYWxzZSwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTcwODA3Mzg4NH0.22IfTRXcpT3OjXVuwABbp7dLIIYtHlGY7aRMiq4K73U
-@userId =65cca5e8aef49e3ec2f7e3b7
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQxNDI2MDZiMGVjNjEyMDE2ODZhNGQiLCJpc0J1c2luZXNzIjpmYWxzZSwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzA4MjEyODU2fQ.iS2pcjbbehyrnDQYlzbKWLoWFd6w3fvKFOeXdy0_8Mo
+@userId =65d142606b0ec61201686a4d
 ### register user
 POST {{local}}/api/users
 Content-Type: application/json
@@ -8,8 +8,9 @@ Content-Type: application/json
  {
       "name": { "first": "reg user", "last": "last name" },
       "isBusiness": false,
+      "isAdmin": true,
       "phone": "0544567892",
-      "email": "bizUser631@example.com",
+      "email": "adminUser636@example.com",
       "password": "Ad054851*",
       "address": {
         "country": "israel",
@@ -25,7 +26,7 @@ POST {{local}}/api/users/login
 Content-Type: application/json
 
 {
-    "email": "bizUser631@example.com", 
+    "email": "adminUser636@example.com", 
     "password": "Ad054851*"
 }
 
@@ -34,7 +35,7 @@ GET {{local}}/api/users
 x-auth-token: {{token}}
 
 ### get user by id
-GET {{local}}/api/users/65cc6b4ef38f181d3b0392ad
+GET {{local}}/api/users/{{userId}}
 x-auth-token: {{token}}
 
 ### edit user 
@@ -44,11 +45,11 @@ Content-Type: application/json
 
 {
   "name": {
-    "first": "biz user test1",
+    "first": "private user test1",
     "last": "last name"
   },
   "phone": "0544567892",
-  "email": "bizUser102@example.com",
+  "email": "privateUser102@example.com",
   "image": {
     "url": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
     "alt": "user image"
@@ -57,10 +58,10 @@ Content-Type: application/json
     "country": "israel",
     "city": "hadera",
     "street": "herzel",
-    "houseNumber": 24,
+    "houseNumber": 25,
     "zip": 1
   },
-  "isBusiness": true
+  "isBusiness": false
 }
 
 ### change isBusiness status
@@ -68,7 +69,7 @@ PATCH {{local}}/api/users/{{userId}}
 x-auth-token: {{token}}
 
 ### delete user
-DELETE {{local}}/api/users/65cbe977330da41501cc43e4
+DELETE {{local}}/api/users/65d122fc6b0ec61201686a1c
 x-auth-token: {{token}} 
 
 ### create new card
