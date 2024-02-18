@@ -3,7 +3,7 @@ Hello, my name is Dikla and this is my node.js project- 'my rest api'.
 this project is a Server-side development for a web application that includes a website management system that allows business users
 publish content, edit and delete it.
 I have made an API addresses instructions tables on POSTMAN, for Users and Cards, on the links below:
-- Users--> https://documenter.getpostman.com/view/28260254/2sA2r6WPJF#ea0a28d8-67d4-482c-bde4-908a58f1942f
+- Users--> https://documenter.getpostman.com/view/28260254/2sA2r6WPJF
 - Cards--> https://documenter.getpostman.com/view/28260254/2sA2r81PUn#intro
 
 the technologies I used for this project are:
