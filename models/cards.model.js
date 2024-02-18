@@ -31,13 +31,11 @@ const cardsSchema = new mongoose.Schema({
     type: String,
     required: true,
     minlength: 5,
-    maxlength: 256,
   },
   web: {
     type: String,
     required: true,
-    minlength: 14,
-    maxlength: 256,
+    minlength: 10,
   },
   image: {
     type: new mongoose.Schema({
@@ -85,7 +83,6 @@ const cardsSchema = new mongoose.Schema({
       },
       zip: {
         type: Number,
-        required: true,
         maxlength: 256,
         default: 0,
       },
@@ -120,7 +117,7 @@ const Card = mongoose.model('Card', cardsSchema, 'cards');
 function validateCard(card) {
   const schema = Joi.object({
     title: Joi.string().min(2).max(256).required(),
-    subtitle: Joi.string().min(2).max(256),
+    subtitle: Joi.string().min(2).max(256).required(),
     description: Joi.string().min(2).max(1024).required(),
     phone: Joi.string()
       .min(9)
@@ -129,10 +126,9 @@ function validateCard(card) {
       .regex(/^0[2-9]\d{7,8}$/),
     email: Joi.string()
       .min(5)
-      .max(256)
       .required()
       .email({ tlds: { allow: false } }),
-    web: Joi.string().min(14).max(256).allow(''),
+    web: Joi.string().min(10).allow(''),
     //image
     image: Joi.object({
       url: Joi.string().min(14).uri().allow(''),

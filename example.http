@@ -1,6 +1,6 @@
 @local=http://localhost:3000
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQxNDI2MDZiMGVjNjEyMDE2ODZhNGQiLCJpc0J1c2luZXNzIjpmYWxzZSwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzA4MjEyODU2fQ.iS2pcjbbehyrnDQYlzbKWLoWFd6w3fvKFOeXdy0_8Mo
-@userId =65d142606b0ec61201686a4d
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQxMWVmOTZiMGVjNjEyMDE2ODY5ZmYiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzA4MjE4NjMxfQ.UhsQokHwDWZemkqGgDnUo11Nr4Z_u2LTjZvdRjeX95w
+@userId =65d11ef96b0ec612016869ff
 ### register user
 POST {{local}}/api/users
 Content-Type: application/json
@@ -10,13 +10,14 @@ Content-Type: application/json
       "isBusiness": false,
       "isAdmin": true,
       "phone": "0544567892",
-      "email": "adminUser636@example.com",
+      "email": "bizUser634@example.com",
       "password": "Ad054851*",
       "address": {
         "country": "israel",
         "city": "hadera",
         "street": "herzel",
-        "houseNumber": "24"
+        "houseNumber": "24",
+        "zip": "3"
       },
       "image": { "url": "https://cdn.pixabay.com/photo/2024/01/20/16/28/rose-8521466_640.jpg", "alt": "flower" }
     }
@@ -26,7 +27,7 @@ POST {{local}}/api/users/login
 Content-Type: application/json
 
 {
-    "email": "adminUser636@example.com", 
+    "email": "bizUser634@example.com", 
     "password": "Ad054851*"
 }
 
@@ -78,7 +79,7 @@ Content-Type: application/json
 x-auth-token: {{token}}
 
 {
-      "title": "E card",
+      "title": "C card",
       "subtitle": "subtitle for card three",
       "description": "the data of card three",
       "phone": "0525563256",
@@ -94,7 +95,7 @@ x-auth-token: {{token}}
         "city": "haifa",
         "street": "haroe",
         "houseNumber": "25",
-        "zip": "55"
+        "zip": ""
       }
     }
 
@@ -111,12 +112,12 @@ GET {{local}}/api/cards/my-cards
 x-auth-token: {{token}}
 
 ### edit card
-PUT {{local}}/api/cards/65cbc849fc247ad1c148abbf
+PUT {{local}}/api/cards/65d162776ecfa0d8550794a1
 x-auth-token: {{token}}
 Content-Type: application/json
 
 {
-      "title": "p card",
+      "title": "C card",
       "subtitle": "subtitle for card three",
       "description": "the data of card three",
       "phone": "0525563250",
@@ -137,11 +138,11 @@ Content-Type: application/json
     }
 
 ### like card
-PATCH {{local}}/api/cards/65cc6958f38f181d3b039290
+PATCH {{local}}/api/cards/65cca77a5948c44601d4cc2b
 x-auth-token: {{token}}
 Content-Type: application/json
 
 
 ### Delete Card
-DELETE {{local}}/api/cards/65cc950ba6aa1d44a5bb5532
+DELETE {{local}}/api/cards/65d162776ecfa0d8550794a1
 x-auth-token: {{token}}
