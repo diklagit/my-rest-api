@@ -149,7 +149,9 @@ async function deleteUser(req, res) {
       return;
     }
 
-    const user = await User.findByIdAndDelete(req.params.id);
+    const user = await User.findByIdAndDelete(req.params.id).select(
+      '-password'
+    );
 
     if (!user) {
       res.status(400).send('The user with the given ID was not found');
