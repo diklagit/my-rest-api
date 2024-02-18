@@ -98,6 +98,9 @@ router.post('/', async (req, res) => {
       );
     }
 
+    // Delete the user from LoginAttemptsUser collection if login was successful
+    await LoginAttemptsUser.findOneAndDelete({ email: req.body.email });
+
     // Generate authentication token
     const token = user.generateAuthToken();
 
