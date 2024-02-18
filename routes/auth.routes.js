@@ -79,7 +79,7 @@ router.post('/', async (req, res) => {
       }
     }
 
-    // Reset login attempts on successful login
+    //Reset login attempts on successful login
     if (loginUserTry) {
       loginUserTry.loginAttempts = 0;
       loginUserTry.blockEndDate = null;
@@ -103,7 +103,7 @@ router.post('/', async (req, res) => {
 
     // Send response
     chalkLogSignedUser('the user signed-in successfully!');
-    res.json({ token });
+    await res.json({ token });
   } catch (error) {
     chalkLogErr(error);
     res.status(500).send('server error: ' + error.message);
