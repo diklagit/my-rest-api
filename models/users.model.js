@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       minlength: 8,
-      maxlength: 20,
+      maxlength: 1024,
     },
     image: {
       type: new mongoose.Schema({

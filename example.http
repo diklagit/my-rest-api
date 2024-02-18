@@ -1,16 +1,15 @@
 @local=http://localhost:3000
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQxMWVmOTZiMGVjNjEyMDE2ODY5ZmYiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzA4MjE4NjMxfQ.UhsQokHwDWZemkqGgDnUo11Nr4Z_u2LTjZvdRjeX95w
-@userId =65d11ef96b0ec612016869ff
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQxN2JlMWIyY2JmOGUyYzcxMDI3ZjEiLCJpc0J1c2luZXNzIjp0cnVlLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNzA4MjI3NTk1fQ.bMZa1IdKLEUvpF96FNxOFu49VYwPwzw7P-hGbyBPmqw
+@userId =65d17be1b2cbf8e2c71027f1
 ### register user
 POST {{local}}/api/users
 Content-Type: application/json
 
  {
       "name": { "first": "reg user", "last": "last name" },
-      "isBusiness": false,
-      "isAdmin": true,
+      "isBusiness": true,
       "phone": "0544567892",
-      "email": "bizUser634@example.com",
+      "email": "bizUser636@example.com",
       "password": "Ad054851*",
       "address": {
         "country": "israel",
@@ -27,7 +26,7 @@ POST {{local}}/api/users/login
 Content-Type: application/json
 
 {
-    "email": "bizUser634@example.com", 
+    "email": "bizUser636@example.com", 
     "password": "Ad054851*"
 }
 
@@ -50,7 +49,7 @@ Content-Type: application/json
     "last": "last name"
   },
   "phone": "0544567892",
-  "email": "privateUser102@example.com",
+  "email": "bizUser170@example.com",
   "image": {
     "url": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
     "alt": "user image"
@@ -59,7 +58,7 @@ Content-Type: application/json
     "country": "israel",
     "city": "hadera",
     "street": "herzel",
-    "houseNumber": 25,
+    "houseNumber": 24,
     "zip": 1
   },
   "isBusiness": false
@@ -79,7 +78,7 @@ Content-Type: application/json
 x-auth-token: {{token}}
 
 {
-      "title": "C card",
+      "title": "M card",
       "subtitle": "subtitle for card three",
       "description": "the data of card three",
       "phone": "0525563256",
@@ -104,7 +103,7 @@ GET {{local}}/api/cards
 
 
 ### Get Card by id
-GET {{local}}/api/cards/65cc9bd72e848b25bc07b01a
+GET {{local}}/api/cards/65cbc849fc247ad1c148abbf
 
 
 ### Get user cards
@@ -112,7 +111,7 @@ GET {{local}}/api/cards/my-cards
 x-auth-token: {{token}}
 
 ### edit card
-PUT {{local}}/api/cards/65d162776ecfa0d8550794a1
+PUT {{local}}/api/cards/65d17cc4b2cbf8e2c7102808
 x-auth-token: {{token}}
 Content-Type: application/json
 
@@ -133,7 +132,7 @@ Content-Type: application/json
         "city": "haifa",
         "street": "haroe",
         "houseNumber": "111",
-        "zip": "55"
+        "zip": "58"
       }
     }
 
@@ -144,5 +143,5 @@ Content-Type: application/json
 
 
 ### Delete Card
-DELETE {{local}}/api/cards/65d162776ecfa0d8550794a1
+DELETE {{local}}/api/cards/65d17cc4b2cbf8e2c7102808
 x-auth-token: {{token}}
