@@ -4,7 +4,7 @@ this project is a Server-side development for a web application that includes a 
 publish content, edit and delete it.
 I have made an API addresses instructions tables on POSTMAN, for Users and Cards, on the links below:
 - Users--> https://documenter.getpostman.com/view/28260254/2sA2r6WPJF
-- Cards--> https://documenter.getpostman.com/view/28260254/2sA2r81PUn#intro
+- Cards--> https://documenter.getpostman.com/view/28260254/2sA2r81PUn
 
 the technologies I used for this project are:
 - node j.s
