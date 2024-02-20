@@ -9,7 +9,7 @@ Content-Type: application/json
       "name": { "first": "reg user", "last": "last name" },
       "isBusiness": true,
       "phone": "0544567892",
-      "email": "bizUser637@example.com",
+      "email": "bizUser642@example.com",
       "password": "Ad054851*",
       "address": {
         "country": "israel",
@@ -69,7 +69,7 @@ PATCH {{local}}/api/users/{{userId}}
 x-auth-token: {{token}}
 
 ### delete user
-DELETE {{local}}/api/users/65d122fc6b0ec61201686a1c
+DELETE {{local}}/api/users/65cca5e8aef49e3ec2f7e3b7
 x-auth-token: {{token}} 
 
 ### create new card
