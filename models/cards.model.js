@@ -151,13 +151,10 @@ function validateCard(card) {
     return null;
   }
 
-  const errors = {};
-  for (const {
-    path: [key],
-    message,
-  } of error.details) {
-    errors[key] = message;
-  }
+  const firstError = error.details[0];
+  const errors = {
+    [firstError.path[0]]: firstError.message,
+  };
   return errors;
 }
 
