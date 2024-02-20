@@ -7,7 +7,7 @@ const { chalkLogErr, chalkLogComplete } = require('../utils/chalk');
 
 if (require.main === module) {
   const args = {
-    fullReset: ['--full-reset', '-fr'].includes(process.arg[2]),
+    fullReset: ['--full-reset', '-fr'].includes(process.argv[2]),
   };
   require('../configs/loadEnvs');
 
